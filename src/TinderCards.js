@@ -17,9 +17,14 @@ function TinderCards() {
 
     useEffect(() => {
         // setPeople using Firebase
-        database.collection('people').onSnapshot((snapshot)=>{
+        const unsubscribe = database.collection('people').onSnapshot((snapshot)=>{
             setPeople(snapshot.docs.map(doc => doc.data()))
-        })
+        });
+
+        return ()=>{
+            // This is the cleanUp function it cleansUp the listener above 
+            unsubscribe()
+        }
        
         
     }, [])

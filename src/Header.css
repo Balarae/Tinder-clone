@@ -7,7 +7,7 @@
 .header__logo{
     height: 40px;
     width: 90px;
-    color: pink;
+    color: pink !important;
     object-fit: contain;
 
 }
